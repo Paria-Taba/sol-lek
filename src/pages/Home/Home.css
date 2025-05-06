@@ -1,0 +1,23 @@
+h1{
+	text-align: center;
+	padding: 20px;
+	font-size: 24px;
+}
+.main-1{
+	display: flex;
+	padding: 30px;
+	justify-content: space-between;
+	gap: 200px;
+	text-align: justify;
+}
+.main-1 img{
+	border: 2px solid #F77F00;
+	border-radius: 20px;
+	width: 90%;
+	
+}
+.main-1-img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
