@@ -1,0 +1,36 @@
+.header{
+	display: flex;
+	background-color: #FFD48C;
+	padding: 10px;
+	justify-content: space-between;
+gap: 50px;
+
+}
+.header img{
+	width: 100px;
+	border-radius: 100%;
+	border: 2px solid #F77F00;
+	
+}
+
+.header button{
+	transition: all 0.5s;
+	background-color: #CBEEE7;
+	border: 2px solid #F77F00;
+	border-radius: 10px;
+	padding: 15px;
+	margin: 10px;
+	cursor: pointer;
+}
+.header button:hover{
+	background-color: #F77F00;
+}
+@media screen and (max-width:600px) {
+	
+	.header-button{
+		display: flex;
+		flex-direction: column;
+		
+	}
+
+}
