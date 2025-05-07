@@ -2,6 +2,7 @@ import Header from "../../Component/Header/Header";
 import "../Home/Home.css"
 import sol from "../../assets/Images/sol-1.png"
 import karta from "../../assets/Images/karta.png"
+import Footer from "../../Component/Footer/Footer";
 
 function Home(){
 	return(
@@ -32,6 +33,7 @@ function Home(){
 			</p>
 			<button>Logga in</button>
 		</div>
+		<Footer></Footer>
 		
 		</div>
 	)
