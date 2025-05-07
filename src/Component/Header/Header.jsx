@@ -1,5 +1,6 @@
 import sol from "../../assets/Images/sol-lek.png"
 import "../Header/Header.css"
+import { NavLink } from "react-router-dom"
 function Header(){
 	return(
 <div className="header">
@@ -7,8 +8,8 @@ function Header(){
 	<img src={sol} alt="Sol & Lek Logo" />
 	</div>
 	<div className="header-button">
-		<button>Produkter</button>
-		<button>Inloggning</button>
+		<NavLink to="/produkter">Produkter</NavLink>
+		<NavLink>Inloggning</NavLink>
 	</div>
 </div>
 	)
