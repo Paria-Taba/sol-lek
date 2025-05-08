@@ -9,7 +9,7 @@ function Header(){
 	</div>
 	<div className="header-button">
 		<NavLink to="/produkter">Produkter</NavLink>
-		<NavLink>Inloggning</NavLink>
+		<NavLink to="/login">Inloggning</NavLink>
 	</div>
 </div>
 	)
