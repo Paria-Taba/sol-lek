@@ -3,15 +3,30 @@
 	grid-template-columns: 1fr 1fr;
 	
 }
-@media screen and (max-width:950px) {
+@media screen and (max-width:1040px) {
 .produkter-design-div{
-	grid-template-columns: 1fr;
+	grid-template-columns: 600px;
+	justify-content: center; 
 	
 }
 }
-
+@media screen and (max-width:640px) {
+	.produkter-design-div{
+		grid-template-columns: 300px;
+		
+	}
+	}
+	@media screen and (max-width:440px) {
+		.produkter-design-div{
+			grid-template-columns: 250px;
+			justify-content: start; 
+		}
+		}
+		
 
 .kundvagn{
+	text-decoration: none;
+	color: black;
 	display: flex;
 	flex-direction: column;
 	transition: all 0.5s;
@@ -34,3 +49,9 @@
 	right: 0;
 	padding: 30px;
 }
+@media screen and (max-width:450px) {
+	.sort{
+		padding: 2px;
+		
+	}
+	}

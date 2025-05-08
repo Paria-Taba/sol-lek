@@ -3,6 +3,7 @@ import "../Home/Home.css"
 import sol from "../../assets/Images/sol-1.png"
 import karta from "../../assets/Images/karta.png"
 import Footer from "../../Component/Footer/Footer";
+import { NavLink } from "react-router-dom";
 
 function Home(){
 	return(
@@ -31,7 +32,7 @@ function Home(){
 		<div className="main-3">
 			<p>  Är du administratör?
 			</p>
-			<button>Logga in</button>
+			<NavLink to="/login">Logga in</NavLink>
 		</div>
 		<Footer></Footer>
 		

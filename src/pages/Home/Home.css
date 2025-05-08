@@ -111,7 +111,9 @@ margin: 0 40px 0 40px;
 .main-3:last-child{
 	float: left;
 }
-.main-3 button{
+.main-3 a{
+	text-decoration: none;
+	color: black;
 	
 transition: all 0.5s;
 	background-color: #CBEEE7;
@@ -120,7 +122,7 @@ transition: all 0.5s;
 	cursor: pointer;
 	font-size: 18px;
 }
-.main-3 button:hover{
+.main-3 a:hover{
 	background-color: #F77F00;
 }
 @media screen and (max-width:830px) {

@@ -8,6 +8,7 @@ function Header(){
 	<img src={sol} alt="Sol & Lek Logo" />
 	</div>
 	<div className="header-button">
+	<NavLink to="/">Hem</NavLink>
 		<NavLink to="/produkter">Produkter</NavLink>
 		<NavLink to="/login">Inloggning</NavLink>
 	</div>

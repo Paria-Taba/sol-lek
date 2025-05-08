@@ -1,0 +1,101 @@
+.shop-div{
+	display: flex;
+	background-color: #CBEEE7;
+
+	
+}
+.shop-div>*{
+	margin: 10px;
+}
+
+.shop-div img{
+	border-radius: 10px;
+	width: 100px;
+	height: 100px;
+}
+.shop-main{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.shop-main>*{
+margin: 20px;
+border-radius: 10px;
+}
+.name-price{
+	display: flex;
+	flex-direction: column;
+}
+.name-price>*{
+
+	margin: 20px;
+}
+.edit-button>*{
+	
+padding: 10px;
+margin: 10px;
+}
+.row-div{
+	display: flex;
+}
+.edit-button button{
+	background-color: #FFD48C;
+	border: 2px solid #F77F00;
+	border-radius: 10px;
+	padding: 10px;
+}
+@media screen and (max-width:1020px) {
+	.shop-main{
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+}
+@media screen and (max-width:530px) {
+.shop-div{
+	flex-direction: column;
+}
+.row-div{
+	flex-direction: column;
+	
+}
+.shop-img{
+	display: flex;
+	justify-content: center;
+}
+}
+.shop-button{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.shop-button button{
+	background-color: #FFD48C;
+	border: 2px solid #F77F00;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 20px;
+	font-size: 18px;
+
+}
+.dec-inc>*{
+	margin: 7px;
+}
+.tomt-basket{
+	font-size: 30px;
+	padding: 20px;
+}
+.back-div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.back-div a{
+	text-decoration: none;
+	color: black;
+		background-color: #FFD48C;
+		border: 2px solid #F77F00;
+		border-radius: 10px;
+		padding: 10px;
+		margin: 20px;
+		font-size: 18px;
+}

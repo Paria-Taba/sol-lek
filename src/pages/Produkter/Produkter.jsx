@@ -5,8 +5,11 @@ import getProdukter from "../../data/getProdukter"
 import { useState,useEffect } from "react"
 import Produkt from "../../Component/Produkt/Produkt"
 import { FaShoppingCart } from "react-icons/fa";
+import { NavLink } from "react-router-dom"
+import useCartStore from "../../store/cartStore"
 function Produkter(){
 	const [produkter, setProdukter] = useState([]);
+	const items = useCartStore((state) => state.items)
 
 	useEffect(() => {
 	  const fetchData = async () => {
@@ -22,15 +25,15 @@ function Produkter(){
 		<div>
 			<Header></Header>
 			<div className="sort">
-				<select >
-						<option value="" selected>All produkter</option>
-						<option value="">Vattenlek</option>
-						<option value="">Aktiv lek</option>
-						<option value="">Utomhuslek</option>
-						<option value="">Pris: lågt till högt</option>
-						<option value="">Pris: högt till lågt</option>
-						<option value="">Namn: A-Ö</option>
-						<option value="">Namn: Ö-A</option>
+				<select defaultValue="produkter" >
+						<option value="produkter">All produkter</option>
+						<option value="Vattenlek">Vattenlek</option>
+						<option value="Aktiv lek">Aktiv lek</option>
+						<option value="Utomhuslek">Utomhuslek</option>
+						<option value="lågt till högt">Pris: lågt till högt</option>
+						<option value="högt till lågt">Pris: högt till lågt</option>
+						<option value="A-Ö">Namn: A-Ö</option>
+						<option value="Ö-A">Namn: Ö-A</option>
 				</select></div>
 			<div>
 				<h1>Sommarleksaker</h1>
@@ -41,11 +44,11 @@ function Produkter(){
 				))}
 				
 		</div>
-		<div className="kundvagn">
+		<NavLink className="kundvagn" to="/kundvagn">
 		<FaShoppingCart size={30} color="black" />
 		<span>Kundvagn</span>
-		<span>0</span>
-		</div>
+		<span>{items.length}</span>
+		</NavLink>
 			</div>
 			<Footer></Footer>
 		</div>
