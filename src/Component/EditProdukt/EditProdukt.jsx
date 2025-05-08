@@ -1,5 +1,6 @@
 import "../EditProdukt/EditProdukt.css"
 function EditProdukt(props){
+	
 	return(
 <div className="produkt-div edit">
 			<div className="produkt-img">
@@ -11,7 +12,7 @@ function EditProdukt(props){
 				<p>Pris : {props.produkt.pris}</p>
 				<p>⭐️{props.produkt.beskrivning}⭐️</p>
 				<div>
-					<button>Tabort</button>
+					<button onClick={() => props.onDelete(props.produkt.id)}>Tabort</button>
 					<button>Redigera</button>
 				</div>
 			</div>
