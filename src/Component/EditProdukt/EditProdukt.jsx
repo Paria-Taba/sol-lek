@@ -1,6 +1,10 @@
+import { useState } from "react"
 import "../EditProdukt/EditProdukt.css"
 function EditProdukt(props){
-	
+	const[showEdit,setShowEdit]=useState(false)
+	function editHandler(){
+		setShowEdit(true)
+	}
 	return(
 <div className="produkt-div edit">
 			<div className="produkt-img">
@@ -13,8 +17,20 @@ function EditProdukt(props){
 				<p>⭐️{props.produkt.beskrivning}⭐️</p>
 				<div>
 					<button onClick={() => props.onDelete(props.produkt.id)}>Tabort</button>
-					<button>Redigera</button>
+					<button onClick={editHandler}>Redigera</button>
 				</div>
+				{showEdit ? (
+					<div className="edit-div">
+						<label htmlFor="name">Namn: </label>
+						<input type="text" placeholder={props.produkt.namn} id="name" />
+						<label htmlFor="price">Pris :</label>
+					<input type="text" placeholder={props.produkt.pris} id="price" />
+					<label htmlFor="beskrivning">Beskrivning: </label>
+					<textarea placeholder={props.produkt.beskrivning} rows={7} id="beskrivning"/>
+					<button>Save</button>
+					</div>
+					
+				):null}
 			</div>
 				</div>
 		</div>

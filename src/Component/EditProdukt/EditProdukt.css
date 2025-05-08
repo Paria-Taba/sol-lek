@@ -1,3 +1,11 @@
 .edit button{
 	margin: 10px;
 }
+.edit-div>*{
+	padding: 10px;
+	margin: 10px;
+
+}
+.edit-div button{
+	margin-top: 10px;
+}

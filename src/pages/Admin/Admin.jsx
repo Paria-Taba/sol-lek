@@ -5,14 +5,15 @@ import deleteProdukt from "../../data/deleteProdukter";
 import EditProdukt from "../../Component/EditProdukt/EditProdukt";
 import "../Produkter/Produkter.css"
 import { useState,useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import"../Admin/Admin.css";
 
 
 
 
 function Admin(){
+	const[showNemItem,setShowNewItem]=useState(false)
 	const [editProdukt, setEditProdukt] = useState([]);
+	
 
 	const fetchData = async () => {
 		const data = await getProdukter();
@@ -29,7 +30,9 @@ function Admin(){
   await deleteProdukt(id);
   fetchData();
 };
-
+function showItemHandler(){
+	setShowNewItem(true)
+}
 
 	return(
 <div>
@@ -42,8 +45,16 @@ function Admin(){
 				
 		</div>
 		<div className="new-product">
-			<NavLink>Lägg till ny produkt</NavLink>
+			<button onClick={showItemHandler}>Lägg till ny produkt</button>
 		</div>
+		{showNemItem ? (
+			<div className="new-item">
+				<label htmlFor="name">Namn :</label>
+				<input type="text" id="name"/>
+				<label htmlFor="price">Pris :</label>
+				<input type="text" id="price"/>
+			</div>
+		) : null}
 	<Footer></Footer>
 	
 	</>
