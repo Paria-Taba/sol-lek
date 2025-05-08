@@ -46,8 +46,8 @@ function Kundvagn(){
 			)}
 			
 			<div className="shop-button">
-				<button>Totalt pris : {getTotalPrice()} SEK</button>
-				<button>Slutför beställning</button>
+				<div className="total"><p>Totalt pris : {getTotalPrice()} SEK</p></div>
+				<NavLink to="/tack">Slutför beställning</NavLink>
 				
 			</div>
 			<div className="back-div">	<NavLink to="/produkter">tillbaka</NavLink></div>

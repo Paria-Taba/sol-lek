@@ -48,7 +48,7 @@ const messageError={
 	}else {
 		setMessage({ name: "", pass: "" });
 		setCss({ name: "valid", pass: "valid" });
-		navigate("/produkter"); 
+		navigate("/Admin"); 
 	}
 	}
 	return(

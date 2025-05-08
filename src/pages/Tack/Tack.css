@@ -1,0 +1,32 @@
+.tack-div{
+	margin: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.tack-div a{
+	text-decoration: none;
+	color: black;
+	transition: all 0.5s;
+	background-color: #FFD48C;
+	border: 2px solid #F77F00;
+	border-radius: 10px;
+	padding: 10px;
+	font-size: 18px;
+
+}
+.tack-div a:hover{
+	background-color: #F77F00;
+}
+
+.tack-in{
+	margin: 50px;
+	padding: 60px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	background-color: #FFD48C;
+	width: 50%;
+	
+}

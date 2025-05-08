@@ -68,7 +68,10 @@ margin: 10px;
 	align-items: center;
 	flex-direction: column;
 }
-.shop-button button{
+.shop-button a{
+	text-decoration: none;
+	color: black;
+	transition: all 0.5s;
 	background-color: #FFD48C;
 	border: 2px solid #F77F00;
 	border-radius: 10px;
@@ -76,6 +79,9 @@ margin: 10px;
 	margin: 20px;
 	font-size: 18px;
 
+}
+.shop-button a:hover{
+	background-color: #F77F00;
 }
 .dec-inc>*{
 	margin: 7px;
@@ -98,4 +104,16 @@ margin: 10px;
 		padding: 10px;
 		margin: 20px;
 		font-size: 18px;
+}
+.total{
+	border: 2px solid #317769;
+	width: 50%;
+	background-color: #CBEEE7;
+	padding: 20px;
+	border-radius: 10px;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 }
