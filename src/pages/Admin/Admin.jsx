@@ -14,8 +14,6 @@ import Joi from "joi";
 const produktSchema = Joi.object({
   namn: Joi.string().min(4).required(),
   pris: Joi.number().positive().required(),
-  url: Joi.string().uri().required(),
-  beskrivning: Joi.string().min(10).required(),
 });
 
 
@@ -25,8 +23,7 @@ function Admin(){
 	const errorMessage={
 		namn:"",
 	pris:"",
-	url:"",
-	beskrivning:""
+
 	}
 		
 
@@ -83,9 +80,7 @@ if (result.error) {
 	 if(item.context.key==="pris"){
 		errorMessage.pris="Pris måste vara ett nummer"
 	 }
-	 if(item.context.key==="beskrivning"){
-		errorMessage.beskrivning="Beskrivning måste innehålla minst 10 tecken"
-	 }
+	
 	
 	});
 
@@ -113,7 +108,7 @@ if (result.error) {
 				
 				<label htmlFor="beskrivning">Beskrivning :</label>
 				<textarea  id="beskrivning" value={newItem.beskrivning} onChange={(e) => setNewItem({ ...newItem, beskrivning: e.target.value })}></textarea>
-			<p>{errorMessage.beskrivning}</p>
+			
 				<div>
 					<button onClick={saveNewItemHandler}>Lägg till</button>
 				<button onClick={closeNewItem}>Stäng</button>
