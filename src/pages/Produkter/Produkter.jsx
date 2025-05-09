@@ -9,8 +9,11 @@ import { NavLink } from "react-router-dom"
 import useCartStore from "../../store/cartStore"
 function Produkter(){
 	const [produkter, setProdukter] = useState([]);
+	  const [filter, setFilter] = useState("produkter");
 	const items = useCartStore((state) => state.items)
-
+ const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+  };
 	useEffect(() => {
 	  const fetchData = async () => {
 		const data = await getProdukter();
@@ -20,12 +23,26 @@ function Produkter(){
   
 	  fetchData();
 	}, []);
-  
+   const filterProdukter = () => {
+    let filtered = [...produkter];
+    if (filter === "Vattenlek" || filter === "Aktiv lek" || filter === "Utomhuslek") {
+      filtered = produkter.filter(p => p.kategori === filter);
+    } else if (filter === "lågt till högt") {
+      filtered.sort((a, b) => a.pris - b.pris);
+    } else if (filter === "högt till lågt") {
+      filtered.sort((a, b) => b.pris - a.pris);
+    } else if (filter === "A-Ö") {
+      filtered.sort((a, b) => a.namn.localeCompare(b.namn));
+    } else if (filter === "Ö-A") {
+      filtered.sort((a, b) => b.namn.localeCompare(a.namn));
+    }
+    return filtered;
+  };
 	return(
 		<div>
 			<Header></Header>
 			<div className="sort">
-				<select defaultValue="produkter" >
+				<select defaultValue="produkter" onChange={handleFilterChange} >
 						<option value="produkter">All produkter</option>
 						<option value="Vattenlek">Vattenlek</option>
 						<option value="Aktiv lek">Aktiv lek</option>
@@ -39,7 +56,7 @@ function Produkter(){
 				<h1>Sommarleksaker</h1>
 				
 				<div className="produkter-design-div">
-				{produkter.map(item=>(
+				{filterProdukter().map(item=>(
 					<Produkt produkt={item} key={item.id}></Produkt>
 				))}
 				
