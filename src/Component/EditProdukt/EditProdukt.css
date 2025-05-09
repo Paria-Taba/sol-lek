@@ -19,6 +19,7 @@
 .edit{
 	display: flex;
 	flex-direction: column;
+	margin: 0px 120px 0 120px;
 
 	
 }
@@ -62,5 +63,11 @@ margin: 20px;
 
 .edit-row{
 	flex-direction: column;
+}
+.edit{
+	
+	margin: 0px 20px 0 20px;
+
+	
 }
 }

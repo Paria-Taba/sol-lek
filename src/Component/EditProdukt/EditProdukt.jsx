@@ -36,7 +36,7 @@ const [kategori, setKategori] = useState(props.produkt.kategori);
 	  
 	return(
 <div className="edit">
-			<div className="edit-row">
+		
 				<img src={props.produkt.bild} alt="Bild" />
 			
 			
@@ -49,7 +49,7 @@ const [kategori, setKategori] = useState(props.produkt.kategori);
 				<div className="edit-button">
 					<button onClick={() => props.onDelete(props.produkt.id)}>Tabort</button>
 					<button onClick={editHandler}>Redigera</button>
-		</div></div></div>
+		</div></div>
 				{showEdit ? (
 					<div className="edit-div">
 						<label htmlFor="name">Namn: </label>
