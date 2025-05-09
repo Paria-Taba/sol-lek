@@ -11,7 +11,9 @@ function Produkt(props){
 	return(
 		<div className="produkt-div">
 			<div className="produkt-img">
-				<img src={props.produkt.bild} alt="Bild" />
+				{props.produkt.bild ? (
+					<img src={props.produkt.bild} alt="Bild" />
+				) : null}
 			</div>
 			<div className="div-row">
 			<div className="produkt-info">
