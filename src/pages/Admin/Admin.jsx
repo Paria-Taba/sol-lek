@@ -9,11 +9,28 @@ import"../Admin/Admin.css";
 import addProdukt from "../../data/addProdukt";
 
 
+import Joi from "joi";
+
+const produktSchema = Joi.object({
+  namn: Joi.string().min(4).required(),
+  pris: Joi.number().positive().required(),
+  url: Joi.string().uri().required(),
+  beskrivning: Joi.string().min(10).required(),
+});
 
 
 function Admin(){
 	const[showNemItem,setShowNewItem]=useState(false)
 	const [editProdukt, setEditProdukt] = useState([]);
+	const errorMessage={
+		namn:"",
+	pris:"",
+	url:"",
+	beskrivning:""
+	}
+		
+
+
 const [newItem,setNewItem]=useState({
 	namn:"",
 	pris:"",
@@ -57,6 +74,21 @@ async function saveNewItemHandler() {
 function closeNewItem(){
 	setShowNewItem(false)
 }
+const result=produktSchema.validate(newItem)
+if (result.error) {
+	result.error.details.forEach(item => {
+	 if(item.context.key==="namn"){
+		errorMessage.namn="Namnet måste innehålla minst 4 tecken"
+	 }
+	 if(item.context.key==="pris"){
+		errorMessage.pris="Pris måste vara ett nummer"
+	 }
+	 if(item.context.key==="beskrivning"){
+		errorMessage.beskrivning="Beskrivning måste innehålla minst 10 tecken"
+	 }
+	
+	});
+
 
 	return(
 <div>
@@ -69,14 +101,19 @@ function closeNewItem(){
 				<label htmlFor="name">Namn :</label>
 				<input type="text" id="name" value={newItem.namn} onChange={(e) => setNewItem({ ...newItem, namn: e.target.value })}
 				/>
+				<p className="error-class">{errorMessage.namn}</p>
 				<label htmlFor="price">Pris :</label>
 				<input type="text" id="price" value={newItem.pris} onChange={(e) => setNewItem({ ...newItem, pris: e.target.value })}/>
+				<p className="error-class">{errorMessage.pris}</p>
 				<label htmlFor="kategori">Kategori :</label>
 				<input type="text" id="kategori" value={newItem.kategori} onChange={(e) => setNewItem({ ...newItem, kategori: e.target.value })}/>
+				
 				<label htmlFor="url">URL :</label>
 				<input type="text" id="url" value={newItem.url} onChange={(e) => setNewItem({ ...newItem, url: e.target.value })}/>
+				
 				<label htmlFor="beskrivning">Beskrivning :</label>
 				<textarea  id="beskrivning" value={newItem.beskrivning} onChange={(e) => setNewItem({ ...newItem, beskrivning: e.target.value })}></textarea>
+			<p>{errorMessage.beskrivning}</p>
 				<div>
 					<button onClick={saveNewItemHandler}>Lägg till</button>
 				<button onClick={closeNewItem}>Stäng</button>
@@ -95,6 +132,6 @@ function closeNewItem(){
 	
 	</>
 </div>
-	)
+	)}
 }
 export default Admin
