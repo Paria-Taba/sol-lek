@@ -5,6 +5,9 @@ function EditProdukt(props){
 	function editHandler(){
 		setShowEdit(true)
 	}
+	function closeHandler(){
+		setShowEdit(false)
+	}
 	return(
 <div className="produkt-div edit">
 			<div className="produkt-img">
@@ -28,6 +31,7 @@ function EditProdukt(props){
 					<label htmlFor="beskrivning">Beskrivning: </label>
 					<textarea placeholder={props.produkt.beskrivning} rows={7} id="beskrivning"/>
 					<button>Save</button>
+					<button onClick={closeHandler}>Stäng</button>
 					</div>
 					
 				):null}

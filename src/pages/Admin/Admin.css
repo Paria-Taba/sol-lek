@@ -24,8 +24,30 @@
 	justify-content: center;
 	align-items: center;
 }
+.new-item>*{
+	padding: 10px;
+}
 .new-item input{
 	padding: 10px;
 	margin: 10px;
 	width: 50%;
 }
+.new-item button{
+	margin: 30px;
+	transition: all 0.5s;
+	background-color: #CBEEE7;
+	border: 2px solid #F77F00;
+	border-radius: 10px;
+	cursor: pointer;
+	font-size: 18px;
+	padding: 10px;
+
+}
+.new-item button:hover{
+	background-color: #F77F00;
+}
+.new-item textarea{
+	width: 50%;
+	height: 150px;
+}
+

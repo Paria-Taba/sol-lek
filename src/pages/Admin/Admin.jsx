@@ -53,6 +53,13 @@ function showItemHandler(){
 				<input type="text" id="name"/>
 				<label htmlFor="price">Pris :</label>
 				<input type="text" id="price"/>
+				<label htmlFor="kategori">Kategori :</label>
+				<input type="text" id="kategori"/>
+				<label htmlFor="url">URL :</label>
+				<input type="text" id="url"/>
+				<label htmlFor="beskrivning">Beskrivning :</label>
+				<textarea  id="beskrivning" ></textarea>
+				<button>Lägg till</button>
 			</div>
 		) : null}
 	<Footer></Footer>
