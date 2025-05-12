@@ -54,9 +54,14 @@ margin: 20px;
 
 		}
 		
-		@media screen and (max-width:420px) {
-			.div-row{
-				width: 280px;
-			}
-				}
+@media screen and (max-width:420px) {
+.div-row{
+width: 280px;
+}
+}
+@media screen and (max-width:350px) {
+.div-row{
+width: 260px;
+}
+}
 							
