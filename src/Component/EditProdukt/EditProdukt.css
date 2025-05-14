@@ -27,10 +27,11 @@
 	margin: 20px;
 }
 
-.edit img{
+.edit .edit-info img{
 	border-radius: 10px;
 	width: 150px;
 	height: 150px;
+	border: 2px solid #67d8c2;
 }
 .edit .edit-info{
 	background-color: #CBEEE7;

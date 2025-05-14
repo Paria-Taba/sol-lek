@@ -36,11 +36,10 @@ function EditProdukt(props){
 	
 	return(
 		<div className="edit">
-		{props.produkt.bild ? (
+		<div className="edit-info">
+			{props.produkt.bild ? (
   <img src={props.produkt.bild}  />
 ) : null}
-		
-		<div className="edit-info">
 		<p>{props.produkt.namn}</p>
 		<p>Pris : {props.produkt.pris}</p>
 		<p>kategori : {props.produkt.kategori}</p>

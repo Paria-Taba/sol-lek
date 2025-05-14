@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const schema = Joi.object({
 	name: Joi.string().valid('admin').required(),
-	pass: Joi.string().valid('12345').required(),
+	pass: Joi.string().valid('password').required(),
 });
 
 function Login(){
