@@ -1,7 +1,8 @@
 import { useState } from "react"
 import "../EditProdukt/EditProdukt.css"
 import updateProdukt from "../../data/updateProdukt"
-import { Navigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -12,6 +13,7 @@ function EditProdukt(props){
 	const [beskrivning, setBeskrivning] = useState(props.produkt.beskrivning);
 	const [url, setUrl] = useState(props.produkt.bild);
 	const [kategori, setKategori] = useState(props.produkt.kategori);
+	const navigate=useNavigate()
 	
 	
 	
@@ -24,7 +26,7 @@ function EditProdukt(props){
 	async function saveHandler() {
 		const updatedData = {
 			namn,
-			pris,
+		 pris: parseFloat(pris),
 			beskrivning,
 			url,
 			kategori,
@@ -32,7 +34,7 @@ function EditProdukt(props){
 		
 		await updateProdukt(props.produkt.id, updatedData);
 		setShowEdit(false);
-		Navigate('/admin');
+		navigate("/produkter")
 	}
 	
 	

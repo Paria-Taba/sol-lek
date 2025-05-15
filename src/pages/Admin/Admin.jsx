@@ -10,22 +10,21 @@ import addProdukt from "../../data/addProdukt";
 
 
 import Joi from "joi";
-
 const produktSchema = Joi.object({
   namn: Joi.string().min(4).required(),
   pris: Joi.number().positive().required(),
+  kategori: Joi.string().allow(""), 
+  url: Joi.string().allow(""),      
+  beskrivning: Joi.string().allow("") 
 });
+
 
 
 function Admin(){
 	const[showNemItem,setShowNewItem]=useState(false)
 	const [editProdukt, setEditProdukt] = useState([]);
-	const errorMessage={
-		namn:"",
-	pris:"",
-
-	}
-		
+	 const [validationErrors, setValidationErrors] = useState({ namn: "", pris: "" });
+	
 
 
 const [newItem,setNewItem]=useState({
@@ -55,34 +54,50 @@ function showItemHandler(){
 	setShowNewItem(true)
 }
 async function saveNewItemHandler() {
-	const nyProdukt = {
-	  namn: newItem.namn,
-	  pris: newItem.pris,
-	  kategori: newItem.kategori,
-	  bild: newItem.url,
-	  beskrivning: newItem.beskrivning,
-	};
+  const errorMessage = {
+    namn: "",
+    pris: "",
+  };
 
-	await addProdukt(nyProdukt);
-	fetchData(); 
-	setShowNewItem(false);
-	setNewItem({ namn: "", pris: "", url: "", kategori: "", beskrivning: "" }); 
+  const result = produktSchema.validate(newItem);
+
+  if (result.error) {
+    result.error.details.forEach((item) => {
+      if (item.context.key === "namn") {
+        errorMessage.namn = "Namnet måste innehålla minst 4 tecken";
+      }
+      if (item.context.key === "pris") {
+        errorMessage.pris = "Pris måste vara ett positivt nummer";
+      }
+    });
+
+    setValidationErrors(errorMessage); 
+    return;
+  }
+
+  const nyProdukt = {
+    namn: newItem.namn,
+    pris: parseFloat(newItem.pris), 
+    kategori: newItem.kategori,
+    bild: newItem.url,
+    beskrivning: newItem.beskrivning,
+  };
+
+  try {
+    await addProdukt(nyProdukt);
+    await fetchData(); 
+    setShowNewItem(false);
+    setNewItem({ namn: "", pris: "", url: "", kategori: "", beskrivning: "" });
+    setValidationErrors({ namn: "", pris: "" }); 
+  } catch (error) {
+    console.error("Fel vid tillägg av produkt:", error.message);
+  }
 }
+
 function closeNewItem(){
 	setShowNewItem(false)
 }
-const result=produktSchema.validate(newItem)
-if (result.error) {
-	result.error.details.forEach(item => {
-	 if(item.context.key==="namn"){
-		errorMessage.namn="Namnet måste innehålla minst 4 tecken"
-	 }
-	 if(item.context.key==="pris"){
-		errorMessage.pris="Pris måste vara ett nummer"
-	 }
-	
-	
-	});
+
 
 
 	return(
@@ -96,10 +111,10 @@ if (result.error) {
 				<label htmlFor="name">Namn :</label>
 				<input type="text" id="name" value={newItem.namn} onChange={(e) => setNewItem({ ...newItem, namn: e.target.value })}
 				/>
-				<p className="error-class">{errorMessage.namn}</p>
+				<p className="error-class">{validationErrors.namn}</p>
 				<label htmlFor="price">Pris :</label>
 				<input type="text" id="price" value={newItem.pris} onChange={(e) => setNewItem({ ...newItem, pris: e.target.value })}/>
-				<p className="error-class">{errorMessage.pris}</p>
+				<p className="error-class">{validationErrors.pris}</p>
 				<label htmlFor="kategori">Kategori :</label>
 				<input type="text" id="kategori" value={newItem.kategori} onChange={(e) => setNewItem({ ...newItem, kategori: e.target.value })}/>
 				
@@ -128,5 +143,5 @@ if (result.error) {
 	</>
 </div>
 	)}
-}
+
 export default Admin
