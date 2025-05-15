@@ -7,9 +7,11 @@ import Produkt from "../../Component/Produkt/Produkt"
 import { FaShoppingCart } from "react-icons/fa";
 import { NavLink } from "react-router-dom"
 import useCartStore from "../../store/cartStore"
+import searchImg from "../../assets/Images/search.png"
 function Produkter(){
 	const [produkter, setProdukter] = useState([]);
 	  const [filter, setFilter] = useState("produkter");
+	  const [search,setSearch]=useState("")
 	const items = useCartStore((state) => state.items)
  const handleFilterChange = (e) => {
     setFilter(e.target.value);
@@ -36,11 +38,23 @@ function Produkter(){
     } else if (filter === "Ö-A") {
       filtered.sort((a, b) => b.namn.localeCompare(a.namn));
     }
+	 if (search.trim() !== "") {
+      filtered = filtered.filter(p =>
+        p.namn.toLowerCase().includes(search.toLowerCase())
+      );
+    }
     return filtered;
   };
+function searchHandler(e){
+setSearch(e.target.value)
+}
 	return(
 		<div>
 			<Header></Header>
+			<div className="search">
+					<input type="text"   placeholder="Sök..." onChange={searchHandler}/><img src={searchImg} alt="search-icon" />
+
+			</div>
 			<div className="sort">
 				<select defaultValue="produkter" onChange={handleFilterChange} >
 						<option value="produkter">All produkter</option>

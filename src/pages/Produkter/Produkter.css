@@ -3,6 +3,20 @@
 	grid-template-columns: 1fr 1fr;
 	
 }
+.search{
+text-align: end;
+margin: 20px;
+}
+.search img{
+	position: absolute;
+	padding: 2px;
+	right: 30px;
+	width: 30px;
+}
+.search input{
+	width: 40%;
+	padding: 8px;
+}
 @media screen and (max-width:1040px) {
 .produkter-design-div{
 	grid-template-columns: 600px;
@@ -50,6 +64,10 @@
 	padding: 30px;
 }
 @media screen and (max-width:450px) {
+	.search input{
+	width: 70%;
+	
+}
 	.sort{
 		padding: 2px;
 		
