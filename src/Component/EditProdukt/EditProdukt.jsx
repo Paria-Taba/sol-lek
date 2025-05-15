@@ -1,6 +1,8 @@
 import { useState } from "react"
 import "../EditProdukt/EditProdukt.css"
 import updateProdukt from "../../data/updateProdukt"
+import { Navigate } from "react-router-dom"
+
 
 
 function EditProdukt(props){
@@ -30,7 +32,7 @@ function EditProdukt(props){
 		
 		await updateProdukt(props.produkt.id, updatedData);
 		setShowEdit(false);
-		window.location.reload(); 
+		Navigate('/admin');
 	}
 	
 	
@@ -42,11 +44,11 @@ function EditProdukt(props){
 ) : null}
 		<p>{props.produkt.namn}</p>
 		<p>Pris : {props.produkt.pris}</p>
-		<p>kategori : {props.produkt.kategori}</p>
+		<p>Kategori : {props.produkt.kategori}</p>
 		
 		<p>⭐️{props.produkt.beskrivning}⭐️</p>
 		<div className="edit-button">
-		<button onClick={() => props.onDelete(props.produkt.id)}>Tabort</button>
+		<button onClick={() => props.onDelete(props.produkt.id)}>Ta bort</button>
 		<button onClick={editHandler}>Redigera</button>
 		</div></div>
 		{showEdit ? (

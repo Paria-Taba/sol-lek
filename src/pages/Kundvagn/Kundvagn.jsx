@@ -28,7 +28,7 @@ function Kundvagn(){
 		
 					</div>
 					<div className="edit-button">
-						<button onClick={() => removeFromCart(item.id)}>tabort</button>
+						<button onClick={() => removeFromCart(item.id)}>Ta bort</button>
 						<div className="dec-inc">
 							<button onClick={()=>increaseQuantity(item.id)}>+</button>
 							<span> {item.quantity}</span>
@@ -50,7 +50,7 @@ function Kundvagn(){
 				<NavLink to="/tack">Slutför beställning</NavLink>
 				
 			</div>
-			<div className="back-div">	<NavLink to="/produkter">tillbaka</NavLink></div>
+			<div className="back-div">	<NavLink to="/produkter">Tillbaka</NavLink></div>
 		
 			<Footer></Footer>
 		</div>

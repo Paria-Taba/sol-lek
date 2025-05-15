@@ -10,11 +10,13 @@
 .produkt-div img{
 	border-radius: 10px;
 	width: 150px;
+	
 }
 
 .produkt-info>*{
 	padding: 10px;
 }
+
 .div-row{
 margin: 20px;
 	display: flex;border-radius: 10px;
@@ -29,7 +31,7 @@ margin: 20px;
 	border-radius: 10px;
 	padding: 10px;
 	cursor: pointer;
-	font-size: 16px;
+	
 }
 .div-row button:hover{
 	background-color: #f9b43d
@@ -55,6 +57,12 @@ margin: 20px;
 		}
 		
 @media screen and (max-width:420px) {
+	.produkt-div img{
+		display: flex;
+		justify-content: center;
+
+	
+}
 .div-row{
 width: 280px;
 }
